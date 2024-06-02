@@ -1,0 +1,61 @@
+
+? download adhaar card front side photo of atleast 10 
+	use labelImg and create classes 
+			name
+			gender
+			DOB
+			aadhaar number
+			
+	create :
+		obj.zip
+			1.jpg
+			1.txt
+			2.jpg
+			2.txt
+			3.jpg
+			3.txt
+			4.jpg
+			4.txt
+			5.jpg
+			5.txt
+			classes.txt
+		 
+		obj.data	
+			class = no.of class
+			train =	data/train.txt
+			names = data/obj.names
+			backup = "path/to/drive" change the path according to you path
+		obj.name 
+			class names same as like classes.txt
+			
+		yolo_custom.cfg
+			uncomment training batches and subdivisions
+			comment testing batches and subdivisions
+			max_batches = no.of class*2000
+			steps = 80%,90% of max batches
+			yolo layer class = no of class
+			conv filters = (no.of class + 5)*3 
+		generate_train.py
+			can use the same for all (change only the extension of the img if needed)
+	upload to drive
+	
+	
+	train the model atleast for 150 iterations
+		save the model in backup path "yolo_backup/adhaar/backup"
+		
+troubleshoot:
+	
+	train.txt
+		check if the file is empty or not
+		if its empty check the generate_train.py file and change the file extenstion to jpeg/png (based on your image extenstion )
+	wrong anotation :
+		check   if the number of classes is same for all images in dataset,if not make it same using labelImg
+		
+	yolo_custom.cfg
+		verify if the changes are updated correctly
+		
+		
+		
+		
+		
+		
